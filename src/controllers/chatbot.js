@@ -1,4 +1,3 @@
-const router = require("../routes/home");
 const request= require('request');
 const env = require("dotenv");
 env.config();
@@ -90,7 +89,7 @@ function callSendAPI(sender_psid, response) {
     "message": response
   }
   request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
+    "uri": "https://graph.facebook.com/v6.0/me/messages",
     "qs": { "access_token": process.env.FB_PAGE_TOKEN },
     "method": "POST",
     "json": request_body
