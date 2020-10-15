@@ -4,6 +4,7 @@ env.config();
 
 exports.getWebHook = (req, res) => {
   let VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN;
+  console.log(VERIFY_TOKEN);
 
   // Parse the query params
   let mode = req.query["hub.mode"];
