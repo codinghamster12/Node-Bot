@@ -67,7 +67,7 @@ function firstTrait(nlp, name) {
 function handleMessage(sender_psid, received_message) {
 
   // Checks if the message contains text
-  const greeting = firstTrait(message.nlp, 'wit$greetings');
+  const greeting = firstTrait(received_message.nlp, 'wit$greetings');
   if (greeting && greeting.confidence > 0.8) {
     callSendAPI(sender_psid, 'Hi there');
   } else { 
