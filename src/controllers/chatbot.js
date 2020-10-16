@@ -63,6 +63,13 @@ exports.postWebHook = (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
+
+  const greeting = firstTrait(message.nlp, 'wit$greetings');
+  if (greeting && greeting.confidence > 0.8) {
+    sendResponse('Hi there!');
+  } else { 
+    // default logic
+  
   
   // Checks if the message contains text
   if (received_message.text) {    
@@ -100,6 +107,7 @@ function handleMessage(sender_psid, received_message) {
       }
     }
   } 
+}
   
   // Send the response message
   callSendAPI(sender_psid, response);  
