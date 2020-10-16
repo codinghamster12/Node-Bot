@@ -60,11 +60,14 @@ exports.postWebHook = (req, res) => {
     res.sendStatus(404);
   }
 };
+function firstTrait(nlp, name) {
+  return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
+}
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
 
   // Checks if the message contains text
-  const greeting = firstTrait(message.nlp, 'greetings');
+  const greeting = firstTrait(message.nlp, 'wit$greetings');
   if (greeting && greeting.confidence > 0.8) {
     callSendAPI(sender_psid, 'Hi there');
   } else { 
@@ -74,6 +77,7 @@ function handleMessage(sender_psid, received_message) {
   
   // Send the response message
 }
+
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
