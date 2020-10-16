@@ -65,15 +65,33 @@ function firstTrait(nlp, name) {
 }
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
+  let entitiesArr=['wit$greetings', 'wit$thanks', 'wit$bye'];
+  let entityChosen='';
+  entitiesArr.forEach(name => {
+    let entity= firstTrait(received_message.nlp, name);
+    if(entity && entity.confidence > 0.8){
+      entityChosen= name;
+    }
+    if(entityChosen===""){
+      callSendAPI(sender_psid, 'Hi! The bot requires more training try using thanks or bye');
 
-  // Checks if the message contains text
-  const greeting = firstTrait(received_message.nlp, 'wit$greetings');
-  if (greeting && greeting.confidence > 0.8) {
-    callSendAPI(sender_psid, 'Hi there');
-  } else { 
-    // default logic
-    callSendAPI(sender_psid, 'default');
+    }
+    else {
+      if(entityChosen==='wit$greetings'){
+      callSendAPI(sender_psid, 'Hi there!');
+    }
+    if(entityChosen==='wit$thanks'){
+      callSendAPI(sender_psid, 'You are welcome');
+  
+    }
+    if(entityChosen==='wit$bye'){
+      callSendAPI(sender_psid, 'Bubyee');
+    }
   }
+  
+  });
+
+  
   
   // Send the response message
 }
