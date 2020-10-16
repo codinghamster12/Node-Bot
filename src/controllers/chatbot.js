@@ -72,6 +72,7 @@ function handleMessage(sender_psid, received_message) {
     if(entity && entity.confidence > 0.8){
       entityChosen= name;
     }
+  });
     if(entityChosen===""){
       callSendAPI(sender_psid, 'Hi! The bot requires more training try using thanks or bye');
 
@@ -89,7 +90,7 @@ function handleMessage(sender_psid, received_message) {
     }
   }
   
-  });
+
 
   
   
