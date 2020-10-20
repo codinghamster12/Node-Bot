@@ -111,7 +111,7 @@ function handlePostback(sender_psid, received_postback) {
   } else if (payload === 'no') {
     response = { "text": "Oops, try sending another image." }
   }
-  else if(payload=== 'GET_STARTED'){
+  else if(payload === 'GET_STARTED'){
     response={ "text":"Hi there"}
   }
   // Send the message to acknowledge the postback
@@ -124,7 +124,7 @@ function callSendAPI(sender_psid, response) {
     "recipient": {
       "id": sender_psid
     },
-    "message": { "text": response }
+    "message": response
   }
   request({
     "uri": "https://graph.facebook.com/v6.0/me/messages",
