@@ -80,8 +80,8 @@ exports.sendMainMenu = async (sender_psid) =>{
                     },
                     {
                         "title": "HOURS",
-                        "subtitle": `MON-FRI: 10:00AM - 11:00PM
-                        SAT: 5PM - 10PM
+                        "subtitle": `MON-FRI: 10:00AM - 11:00PM \n
+                        SAT: 5PM - 10PM \n
                         SUN: CLOSED`,
                         "image_url": "https://www.subtractive.pk/images/BellaVita/2.jpg",
                         "buttons": [
@@ -141,7 +141,7 @@ exports.sendResponseWelcomeNewCustomer= async (username, sender_psid) => {
                   "buttons": [
                     {
                       "type": "postback",
-                      "title": "SHOW MAIN MENU",
+                      "title": "Show Main Menu",
                       "payload": "MAIN_MENU",
                     },
                     
