@@ -125,7 +125,7 @@ exports.sendMainMenu = async (sender_psid) =>{
 exports.sendResponseWelcomeNewCustomer= async (username, sender_psid) => {
     return new Promise(async (resolve, reject) =>{
         try{
-        let response_first= {"text": `Welcome ${username} to Bisma's restaurant`};
+        let response_first= {"text": `Welcome ${username} to BellaVita restaurant`};
 
         let response_second = {
             "attachment": {
