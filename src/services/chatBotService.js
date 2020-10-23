@@ -112,8 +112,7 @@ exports.sendMainMenu = (sender_psid) =>{
                   }
                 }
         }
-        await send_Message(response, sender_psid);
-        resolve('value done');
+      
     }
         catch(e){
             reject(e);
@@ -134,13 +133,13 @@ exports.sendResponseWelcomeNewCustomer= async (username, sender_psid) => {
               "payload": {
                 "template_type": "generic",
                 "elements": [{
-                  "title": "Bisma's restaurant",
-                  "subtitle": "Tap a button to answer.",
+                  "title": "BellaVita",
+                  "subtitle": "We specialize in fine dining.",
                   "image_url": "https://www.subtractive.pk/images/BellaVita/2.jpg",
                   "buttons": [
                     {
                       "type": "postback",
-                      "title": "Show Main menu",
+                      "title": "SHOW MAIN MENU",
                       "payload": "MAIN_MENU",
                     },
                     
