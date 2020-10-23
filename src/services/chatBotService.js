@@ -1,5 +1,5 @@
 import { parse } from 'dotenv/types';
-import request from 'request';
+const request = require('request');
 
 function getFacebookUserName(sender_psid){
     return new Promise((resolve, reject) => {
