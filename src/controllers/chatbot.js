@@ -124,6 +124,9 @@ let handlePostback= async (sender_psid, received_postback) => {
       catch(err){
         console.log(err);
       }
+    case "MAIN_MENU":
+      await sendMainMenu(sender_psid);
+      break;
    
     case "yes":
       response={}

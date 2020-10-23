@@ -44,6 +44,80 @@ function send_Message (sender_psid, response)  {
     
 
 }
+
+exports.sendMainMenu = (sender_psid) =>{
+    return new Promise(async (resolve, reject) => {
+        try{
+
+            let response = {
+                "attachment": {
+                  "type": "template",
+                  "payload": {
+                    "template_type": "generic",
+                    "elements": [{
+                      "title": "BellaVita",
+                      "subtitle": "We are pleased to offer a wide range of menus for lunch or dinner",
+                      "image_url": "https://www.subtractive.pk/images/BellaVita/2.jpg",
+                      "buttons": [
+                        {
+                          "type": "postback",
+                          "title": "LUNCH_MENU",
+                          "payload": "LUNCH_MENU",
+                        },
+                        {
+                            "type": "postback",
+                            "title": "DINNER_MENU",
+                            "payload": "DINNER_MENU",
+                          },
+                          {
+                            "type": "postback",
+                            "title": "PUB_MENU",
+                            "payload": "PUB_MENU",
+                          },
+
+                        
+                      ],
+                    },
+                    {
+                        "title": "HOURS",
+                        "subtitle": `MON-FRI: 10:00AM - 11:00PM
+                        SAT: 5PM - 10PM
+                        SUN: CLOSED`,
+                        "image_url": "https://www.subtractive.pk/images/BellaVita/2.jpg",
+                        "buttons": [
+                          {
+                            "type": "postback",
+                            "title": "RESERVE A TABLE",
+                            "payload": "RESERVE_TABLE",
+                          },
+
+                          
+                          
+                        ],
+                      },
+                      {
+                        "title": "Banquet Rooms",
+                        "image_url": "https://www.subtractive.pk/images/BellaVita/2.jpg",
+                        "buttons": [
+                          {
+                            "type": "postback",
+                            "title": "SHOW ROOMS",
+                            "payload": "SHOW_ROOMS",
+                          },
+                          
+                          
+                        ],
+                      }
+                    ]
+                  }
+                }
+        }
+    }
+        catch(e){
+            reject(e);
+        }
+    })
+}
     
   
 
@@ -64,8 +138,8 @@ exports.sendResponseWelcomeNewCustomer= async (username, sender_psid) => {
                   "buttons": [
                     {
                       "type": "postback",
-                      "title": "Main meny",
-                      "payload": "MENU",
+                      "title": "Show Main menu",
+                      "payload": "MAIN_MENU",
                     },
                     
                   ],
