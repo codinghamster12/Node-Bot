@@ -1,5 +1,6 @@
 const request= require('request');
 const env = require("dotenv");
+const {getFacebookUserName} = require('../services/chatBotService');
 env.config();
 
 exports.getWebHook = (req, res) => {
@@ -63,6 +64,8 @@ exports.postWebHook = (req, res) => {
 function firstTrait(nlp, name) {
   return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
 }
+
+
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let entitiesArr=['wit$greetings', 'wit$thanks', 'wit$bye'];
@@ -99,21 +102,31 @@ function handleMessage(sender_psid, received_message) {
 
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {
+let handlePostback= async (sender_psid, received_postback) => {
   let response;
   
   // Get the payload for the postback
+
   let payload = received_postback.payload;
+  let username= await getFacebookUserName(sender_psid);
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
+  switch(payload){
+    case "GET_STARTED":
+      response= {"text": `Welcome ${username} to Bisma's restaurant`};
+      break;
+    case "yes":
+      response={}
+      break;
+    case "no":
+      response={}
+      break;
+    default:
+      console.log('Something went wrong with switch case payload');
+
+    
   }
-  else if(payload === 'GET_STARTED'){
-    response={ "text":"Hi there"}
-  }
+  
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 }
