@@ -20,6 +20,33 @@ exports.getFacebookUserName= (sender_psid)=>{
     });
 }
 
+function send_Message (sender_psid, response)  {
+    let request_body = {
+        "recipient": {
+          "id": sender_psid
+        },
+        "message": response
+      }
+      request({
+        "uri": "https://graph.facebook.com/v6.0/me/messages",
+        "qs": { "access_token": process.env.FB_PAGE_TOKEN },
+        "method": "POST",
+        "json": request_body
+      }, (err, res, body) => {
+        if (!err) {
+          console.log('message sent!')
+        } else {
+          console.error("Unable to send message:" + err);
+        }
+      }); 
+
+
+    
+
+}
+    
+  
+
 exports.sendResponseWelcomeNewCustomer= async (username, sender_psid) => {
     return new Promise(async (resolve, reject) =>{
         try{
@@ -60,30 +87,5 @@ exports.sendResponseWelcomeNewCustomer= async (username, sender_psid) => {
 
 }
 
-exports.send_Message = (sender_psid, response) => {
-    let request_body = {
-        "recipient": {
-          "id": sender_psid
-        },
-        "message": response
-      }
-      request({
-        "uri": "https://graph.facebook.com/v6.0/me/messages",
-        "qs": { "access_token": process.env.FB_PAGE_TOKEN },
-        "method": "POST",
-        "json": request_body
-      }, (err, res, body) => {
-        if (!err) {
-          console.log('message sent!')
-        } else {
-          console.error("Unable to send message:" + err);
-        }
-      }); 
 
-
-    
-
-}
-    
-  
   
