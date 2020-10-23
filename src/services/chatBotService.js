@@ -45,7 +45,7 @@ function send_Message (sender_psid, response)  {
 
 }
 
-exports.sendMainMenu = (sender_psid) =>{
+exports.sendMainMenu = async (sender_psid) =>{
     return new Promise(async (resolve, reject) => {
         try{
 
@@ -112,6 +112,8 @@ exports.sendMainMenu = (sender_psid) =>{
                   }
                 }
         }
+        await send_Message(response);
+        resolve('value done');
       
     }
         catch(e){
