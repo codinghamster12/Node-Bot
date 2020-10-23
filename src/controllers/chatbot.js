@@ -1,7 +1,5 @@
 const request= require('request');
 const env = require("dotenv");
-
-import chatBotService from '../services/chatBotService';
 env.config();
 
 exports.getWebHook = (req, res) => {
@@ -115,7 +113,7 @@ let handlePostback= async (sender_psid, received_postback) => {
 
     case "GET_STARTED":
       try{
-        let username= await chatBotService.getFacebookUserName(sender_psid);
+        let username= getFacebookUserName(sender_psid);
         response= {"text": `Welcome ${username} to Bisma's restaurant`};
         break;
 
