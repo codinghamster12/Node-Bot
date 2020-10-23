@@ -57,7 +57,7 @@ exports.sendMainMenu = async (sender_psid) =>{
                     "elements": [{
                       "title": "BellaVita",
                       "subtitle": "We are pleased to offer a wide range of menus for lunch or dinner",
-                      "image_url": "https://www.subtractive.pk/images/BellaVita/2.jpg",
+                      "image_url": "https://media.istockphoto.com/vectors/coffee-menu-restaurant-food-template-vector-id692954722",
                       "buttons": [
                         {
                           "type": "postback",
@@ -80,10 +80,8 @@ exports.sendMainMenu = async (sender_psid) =>{
                     },
                     {
                         "title": "HOURS",
-                        "subtitle": `MON-FRI: 10:00AM - 11:00PM \n
-                        SAT: 5PM - 10PM \n
-                        SUN: CLOSED`,
-                        "image_url": "https://www.subtractive.pk/images/BellaVita/2.jpg",
+                        "subtitle": `MON-FRI: 10:00AM - 11:00PM | SAT: 5PM - 10PM | SUN: CLOSED`,
+                        "image_url": "https://i.pinimg.com/originals/07/06/e2/0706e2d368eb7344bfca507cbf3af7db.jpg",
                         "buttons": [
                           {
                             "type": "postback",
@@ -97,7 +95,7 @@ exports.sendMainMenu = async (sender_psid) =>{
                       },
                       {
                         "title": "Banquet Rooms",
-                        "image_url": "https://www.subtractive.pk/images/BellaVita/2.jpg",
+                        "image_url": "https://www.hotelthejeevens.com/library/images/gallery/hd/3_5.jpg",
                         "buttons": [
                           {
                             "type": "postback",
