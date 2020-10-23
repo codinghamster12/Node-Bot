@@ -108,11 +108,12 @@ let handlePostback= async (sender_psid, received_postback) => {
   // Get the payload for the postback
 
   let payload = received_postback.payload;
-  let username= await getFacebookUserName(sender_psid);
 
   // Set the response based on the postback payload
   switch(payload){
+
     case "GET_STARTED":
+      let username= await getFacebookUserName(sender_psid);
       response= {"text": `Welcome ${username} to Bisma's restaurant`};
       break;
     case "yes":
