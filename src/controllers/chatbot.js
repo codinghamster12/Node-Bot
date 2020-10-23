@@ -1,6 +1,6 @@
 const request= require('request');
 const env = require("dotenv");
-const { getFacebookUserName, sendResponseWelcomeNewCustomer }= require('../services/chatBotService');
+const { getFacebookUserName, sendResponseWelcomeNewCustomer, sendMainMenu }= require('../services/chatBotService');
 env.config();
 
 exports.getWebHook = (req, res) => {
