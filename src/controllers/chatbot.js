@@ -1,6 +1,7 @@
 const request= require('request');
 const env = require("dotenv");
-const chatBotService= require('../services/chatBotService');
+
+import chatBotService from '../services/chatBotService';
 env.config();
 
 exports.getWebHook = (req, res) => {
