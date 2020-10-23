@@ -109,6 +109,8 @@ function getFacebookUserName (sender_psid){
       try{
           body= JSON.parse(body);
           let username= `${body.last_name} ${body.first_name}`;
+          console.log(body);
+          console.log(username);
           resolve(username);
       }
       catch(err){
