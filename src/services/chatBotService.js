@@ -7,14 +7,15 @@ function getFacebookUserName(sender_psid){
       "uri": uri,
       "method": "GET",
     }, (err, res, body) => {
-      if (!err) {
-          body= JSON.parse(body);
-          let username= `${body.last_name} ${body.first_name}`;
-          resolve(username);
-
-      } else {
-        reject('Unable to send message: ' + err);
-      }
+        try{
+            body= JSON.parse(body);
+            let username= `${body.last_name} ${body.first_name}`;
+            resolve(username);
+        }
+        catch(err){
+            reject('Unable to send message: ' + err);
+        }
+      
     }); 
     });
     
