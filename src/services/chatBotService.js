@@ -13,7 +13,7 @@ function getFacebookUserName(sender_psid){
           resolve(username);
 
       } else {
-        resolve('Unable to send message: ' + err);
+        reject('Unable to send message: ' + err);
       }
     }); 
     });
