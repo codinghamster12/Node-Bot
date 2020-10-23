@@ -1,5 +1,6 @@
 const request= require('request');
 const env = require("dotenv");
+const { getFacebookUserName }= require('../services/chatBotService');
 env.config();
 
 exports.getWebHook = (req, res) => {
@@ -99,27 +100,6 @@ function handleMessage(sender_psid, received_message) {
   // Send the response message
 }
 
-function getFacebookUserName (sender_psid){
-  return new Promise((resolve, reject) => {
-      let uri= `https://graph.facebook.com/${sender_psid}?fields=first_name,last_name,profile_pic&access_token=${process.env.FB_PAGE_TOKEN}`
-  request({
-    "uri": uri,
-    "method": "GET",
-  }, (err, res, body) => {
-      try{
-          body= JSON.parse(body);
-          let username= `${body.last_name} ${body.first_name}`;
-          console.log(body);
-          console.log(username);
-          resolve(username);
-      }
-      catch(err){
-          reject('Unable to send message: ' + err);
-      }
-    
-  }); 
-  });
-}
 
 
 // Handles messaging_postbacks events
