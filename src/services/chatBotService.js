@@ -1,4 +1,3 @@
-import { parse } from 'dotenv/types';
 const request = require('request');
 
 function getFacebookUserName(sender_psid){
