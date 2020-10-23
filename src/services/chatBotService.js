@@ -112,6 +112,8 @@ exports.sendMainMenu = (sender_psid) =>{
                   }
                 }
         }
+        await send_Message(response, sender_psid);
+        resolve('value done');
     }
         catch(e){
             reject(e);
